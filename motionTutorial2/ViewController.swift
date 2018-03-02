@@ -14,10 +14,18 @@ class ViewController: UIViewController {
 
     var motionManager: CMMotionManager!
     var isRed: Bool = true
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // true if this object is now the first-responder or false if it is not.
         self.becomeFirstResponder()
     }
+    /*
+     This method returns false by default. Subclasses must override this method and return true to be able to become first responder.
+     
+     Do not call this method on a view that is not currently in the active view hierarchy. The result is undefined.
+     */
     override var canBecomeFirstResponder: Bool { return true }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +33,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Tells the receiver that a motion event has ended.
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(event?.subtype == UIEventSubtype.motionShake) {
             if isRed {
@@ -35,7 +44,7 @@ class ViewController: UIViewController {
                 view.backgroundColor = .red
                 isRed = true
             }
-            
+            print("Shake!!!")
         }
     }
 

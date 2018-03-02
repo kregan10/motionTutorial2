@@ -23,16 +23,10 @@ class ViewController: UIViewController {
     }
     /*
      This method returns false by default. Subclasses must override this method and return true to be able to become first responder.
-     
      Do not call this method on a view that is not currently in the active view hierarchy. The result is undefined.
      */
     override var canBecomeFirstResponder: Bool { return true }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // Tells the receiver that a motion event has ended.
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(event?.subtype == UIEventSubtype.motionShake) {
@@ -48,7 +42,10 @@ class ViewController: UIViewController {
         }
     }
 
-
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 }
 
